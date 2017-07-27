@@ -1,0 +1,18 @@
+#!/bin/bash
+
+REPOS="$1"
+TXN="$2"
+#svnlook changed "$REPOS" --copy-info | grep "\[" >> /home/svn-logs/project-http.log | exit 0
+
+path=`svnlook changed "$REPOS" | grep "\["`
+
+if [ -z "$path"  ]
+then
+        echo "Commit Finish" >> /home/svn-logs/project-http.log
+        echo "Done" >&2
+        exit 0
+else
+        echo "Commit Failed $path" >> /home/svn-logs/project-http.log
+        echo "Failed" >&2
+        exit 1
+fi
