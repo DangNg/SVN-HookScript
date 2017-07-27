@@ -1,6 +1,6 @@
 # SVN-HookScript
 
-pre-commit:
+#pre-commit:
   tricks:
     - show message to client : echo " " >&2
     - allow commit : exit 0
