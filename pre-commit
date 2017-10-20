@@ -4,7 +4,7 @@ REPOS="$1"
 TXN="$2"
 #svnlook changed "$REPOS" --copy-info | grep "\[" >> /home/svn-logs/project-http.log | exit 0
 
-path=`svnlook changed "$REPOS" | grep "\["`
+path=`svnlook changed "$REPOS" | grep "\[|\]"`
 
 if [ -z "$path"  ]
 then
